@@ -1,11 +1,11 @@
-== README
+#README
 
 Simple Open Server website
 
-= RUBY VERSION
+##RUBY VERSION
 4.2.0
 
-= Features
+##Features
 Static Pages
 Download Links
 Demos
