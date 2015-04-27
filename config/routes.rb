@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get 'docs' => 'static_pages#docs'
 
+  get 'download/file/:file_name.:file_extension' => 'downloads#provideFile', :as => "file_download"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

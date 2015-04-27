@@ -1,5 +1,5 @@
 class DownloadsController < ApplicationController
-  before_action :set_download, only: :show
+  before_action :set_download, only: [:show, :provideFile]
 
   # GET /download/:link
   def show
@@ -16,13 +16,16 @@ class DownloadsController < ApplicationController
     @download = Download.new(download_params).buildLink
     respond_to do |format|
       if @download.save
-        puts "MAILING 1"
         DownloadMailer.download_email(@download).deliver_later
         format.html { redirect_to root_path, notice: 'Download link was successfully created. Check your email. Also, remember to check the Spam folder!' }
       else
         format.html { render :new }
       end
     end
+  end
+
+  def provideFile
+    send_file Rails.root.join('private', "#{params[:file_name]}.#{params[:file_extension]}"), :type=>'application/jpg', :x_sendfile=>true
   end
 
   private
@@ -36,6 +39,6 @@ class DownloadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def download_params
-      params.require(:download).permit(:firstName, :lastName, :email, :link)
+      params.require(:download).permit(:firstName, :lastName, :email, :link, :file_name)
     end
 end
