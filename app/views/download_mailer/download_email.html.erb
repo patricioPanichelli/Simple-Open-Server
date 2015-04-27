@@ -4,11 +4,19 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @download.firstName %></h1>
+    <h4>Thanks for downloading SimpleOpenServer, <%= @download.firstName %></h4>
     <p>
-      You have successfully signed up to example.com,
-      your download link is: <%= @download.link %>.<br>
+      To view the downloads available, follow the link below:<br>
+      <%= download_url %>/<%= @download.link %>
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>
+      For any troubles downloading SimpleOpenServer, please contact <br>
+      <b>Patricio Panichelli</b><br>
+      patricio.panichelli@gmail.com
+    </p>
+    <p>
+      <em>Have a nice day!</em>
+    </p>
+    <p>Simple Open Server | OpenServer code done right</p>
   </body>
 </html>

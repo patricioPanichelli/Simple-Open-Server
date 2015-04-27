@@ -18,7 +18,7 @@ class DownloadsController < ApplicationController
       if @download.save
         puts "MAILING 1"
         DownloadMailer.download_email(@download).deliver_later
-        format.html { redirect_to root_path, notice: 'Download link was successfully created. Check you remail.' }
+        format.html { redirect_to root_path, notice: 'Download link was successfully created. Check your email. Also, remember to check the Spam folder!' }
       else
         format.html { render :new }
       end
