@@ -17,7 +17,7 @@ class DownloadsController < ApplicationController
     respond_to do |format|
       if @download.save
         DownloadMailer.download_email(@download).deliver_later
-        format.html { redirect_to root_path, notice: 'Download link was successfully created. Check your email. Also, remember to check the Spam folder!' }
+        format.html { redirect_to root_path, notice: 'In the following 5 minutes, you should receive the download link in your inbox. Also, remember to check the Spam folder!' }
       else
         format.html { render :new }
       end

@@ -1,4 +1,13 @@
-<h1>Homepage</h1>
-<p>Initial page, links to the docs and other things</p>
-<%= content_tag(:div, flash[:notice]) if flash[:notice] %>
-<%= link_to "Download", download_path %>
+<div class="center jumbotron">
+  <h1>Simple Open Server | Homepage</h1>
+
+  <%= content_tag(:div, flash[:notice]) if flash[:notice] %>
+
+  <h2>
+    This is the home page for the
+    <a href="http://www.railstutorial.org/">SimpleOpenServer</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Download", download_path, class: "btn btn-lg btn-primary" %>
+</div>
